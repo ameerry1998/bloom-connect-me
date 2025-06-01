@@ -18,13 +18,8 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       {/* Header - Mobile Optimized */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-4 py-4">
-        <nav className="max-w-md mx-auto flex justify-between items-center">
-          <div className="text-xl font-bold text-gray-900">
-            Your Name
-          </div>
-          <div className="flex items-center">
-            <SocialLinks />
-          </div>
+        <nav className="max-w-md mx-auto">
+          {/* Empty header for clean look */}
         </nav>
       </header>
 
@@ -37,15 +32,17 @@ const Index = () => {
               alt="Your Name - Community Builder"
               className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-gray-200"
             />
-            <h1 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">
-              Building the future of AI communities
+            <h1 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+              Building a focused future with AI
             </h1>
-            <p className="text-purple-600 font-semibold text-base mb-2">
-              Documenting every breakthrough.
-            </p>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-gray-600 text-sm leading-relaxed mb-4">
               Connect with like-minded people and accelerate your growth
             </p>
+            <div className="flex justify-center">
+              <div className="scale-75">
+                <SocialLinks />
+              </div>
+            </div>
           </div>
         </div>
       </section>
