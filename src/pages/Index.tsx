@@ -28,18 +28,31 @@ const Index = () => {
         </nav>
       </header>
 
-      {/* Communities Section - Mobile First */}
-      <section id="communities" className="px-4 py-8">
-        <div className="max-w-md mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-3 leading-tight">
-              Join thriving communities
+      {/* Hero Section with Headshot */}
+      <section className="px-4 py-8">
+        <div className="max-w-md mx-auto text-center">
+          <div className="mb-6">
+            <img 
+              src="/lovable-uploads/ede3b914-03bb-4611-b28e-9996a211e62f.png"
+              alt="Your Name - Community Builder"
+              className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-gray-200"
+            />
+            <h1 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">
+              Building the future of AI communities
             </h1>
-            <p className="text-base text-gray-600 leading-relaxed">
+            <p className="text-purple-600 font-semibold text-base mb-2">
+              Documenting every breakthrough.
+            </p>
+            <p className="text-gray-600 text-sm leading-relaxed">
               Connect with like-minded people and accelerate your growth
             </p>
           </div>
-          
+        </div>
+      </section>
+
+      {/* Communities Section - Mobile First */}
+      <section id="communities" className="px-4 py-4">
+        <div className="max-w-md mx-auto">
           <CommunityLinks />
         </div>
       </section>
