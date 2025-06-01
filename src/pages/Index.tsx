@@ -10,12 +10,21 @@ import SocialLinks from "@/components/SocialLinks";
 import CommunityLinks from "@/components/CommunityLinks";
 import EmailSignup from "@/components/EmailSignup";
 import LeadMagnet from "@/components/LeadMagnet";
+import BookingCalendar from "@/components/BookingCalendar";
+import ColorSchemeToggle from "@/components/ColorSchemeToggle";
 
 const Index = () => {
   const { toast } = useToast();
+  const [colorScheme, setColorScheme] = useState(0);
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Color Scheme Toggle */}
+      <ColorSchemeToggle 
+        currentScheme={colorScheme} 
+        onSchemeChange={setColorScheme} 
+      />
+
       {/* Header - Mobile Optimized */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-4 py-4">
         <nav className="max-w-md mx-auto">
@@ -50,9 +59,12 @@ const Index = () => {
       {/* Communities Section - Mobile First */}
       <section id="communities" className="px-4 py-4">
         <div className="max-w-md mx-auto">
-          <CommunityLinks />
+          <CommunityLinks colorScheme={colorScheme} />
         </div>
       </section>
+
+      {/* Booking Calendar Section */}
+      <BookingCalendar />
 
       {/* Lead Magnet Section - Mobile Optimized */}
       <section className="px-4 py-8 bg-gray-50">
