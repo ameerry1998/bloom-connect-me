@@ -8,14 +8,13 @@ const CommunityLinks = () => {
   const communities = [
     {
       name: "ADHD Focus Accountability",
-      description: "Turn scattered focus into laser-sharp productivity. Join 2,500+ ADHD minds crushing their goals together.",
+      description: "Join our thriving community of people who will help you get your life on track. Join our free sessions for planning your week and our free life planning system.",
       icon: Users,
       url: "https://circle.so/your-community",
       color: "from-emerald-500 to-green-500",
       bgColor: "from-emerald-50 to-green-50",
-      members: "2,500+",
       price: "Free Forever",
-      features: ["Daily check-ins", "Focus strategies", "Peer support"]
+      features: ["Daily check-ins", "Focus strategies"]
     },
     {
       name: "AI Implementation Mastery", 
@@ -24,10 +23,9 @@ const CommunityLinks = () => {
       url: "https://skool.com/your-community",
       color: "from-purple-500 to-indigo-500",
       bgColor: "from-purple-50 to-indigo-50",
-      members: "1,800+",
       price: "14-Day Free Trial",
       originalPrice: "$97/month",
-      features: ["AI tutorials", "Live sessions", "Business automation"]
+      features: ["AI tutorials", "Live sessions"]
     }
   ];
 
@@ -37,7 +35,7 @@ const CommunityLinks = () => {
         const IconComponent = community.icon;
         return (
           <Card key={community.name} className={`group hover:shadow-lg transition-all duration-300 border-0 bg-gradient-to-br ${community.bgColor} overflow-hidden relative`}>
-            <CardContent className="p-5">
+            <CardContent className="p-4">
               {/* Top section */}
               <div className="flex justify-between items-start mb-3">
                 <Badge className="bg-white/90 text-gray-700 backdrop-blur-sm font-medium text-xs">
@@ -51,40 +49,17 @@ const CommunityLinks = () => {
 
               {/* Icon & Content */}
               <div className="flex items-start gap-3 mb-4">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${community.color} flex items-center justify-center group-hover:scale-105 transition-transform duration-300 flex-shrink-0`}>
-                  <IconComponent className="h-6 w-6 text-white" />
+                <div className={`w-10 h-10 rounded-xl bg-gradient-to-r ${community.color} flex items-center justify-center group-hover:scale-105 transition-transform duration-300 flex-shrink-0`}>
+                  <IconComponent className="h-5 w-5 text-white" />
                 </div>
                 
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
+                  <h3 className="text-base font-bold text-gray-900 mb-2 leading-tight">
                     {community.name}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     {community.description}
                   </p>
-                </div>
-              </div>
-
-              {/* Stats */}
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3 text-xs text-gray-500">
-                  <div className="flex items-center gap-1">
-                    <Users className="h-3 w-3" />
-                    <span className="font-medium">{community.members}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
-                    <span>Active</span>
-                  </div>
-                </div>
-                
-                {/* Features as badges */}
-                <div className="flex gap-1">
-                  {community.features.slice(0, 2).map((feature, index) => (
-                    <span key={index} className="text-xs bg-white/70 text-gray-600 px-2 py-1 rounded-full">
-                      {feature}
-                    </span>
-                  ))}
                 </div>
               </div>
 
