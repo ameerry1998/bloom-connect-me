@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,13 +23,6 @@ const Index = () => {
         currentScheme={colorScheme} 
         onSchemeChange={setColorScheme} 
       />
-
-      {/* Header - Mobile Optimized */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-4 py-4">
-        <nav className="max-w-md mx-auto">
-          {/* Empty header for clean look */}
-        </nav>
-      </header>
 
       {/* Hero Section with Headshot */}
       <section className="px-4 py-8">
