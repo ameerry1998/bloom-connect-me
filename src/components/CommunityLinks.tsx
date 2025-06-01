@@ -54,6 +54,16 @@ const colorSchemes: ColorScheme[] = [
     buttonHover: "hover:shadow-lg",
     textColor: "text-gray-900",
     descColor: "text-gray-600"
+  },
+  {
+    name: "Pastel Purple",
+    cardBg: "bg-purple-50",
+    iconBg: "bg-purple-100",
+    iconColor: "text-purple-600",
+    buttonBg: "bg-purple-500 hover:bg-purple-600",
+    buttonHover: "hover:shadow-lg",
+    textColor: "text-gray-900",
+    descColor: "text-gray-600"
   }
 ];
 
@@ -82,49 +92,48 @@ const CommunityLinks = ({ colorScheme = 0 }: { colorScheme?: number }) => {
       {communities.map((community) => {
         const IconComponent = community.icon;
         const isFree = community.price === "Free Forever";
-        const cardScheme = isFree ? colorSchemes[3] : scheme; // Use pastel green for free community
+        const isPaid = community.price === "14-Day Free Trial";
+        
+        // Use specific color schemes for each card
+        let cardScheme;
+        if (isFree) {
+          cardScheme = colorSchemes[3]; // Pastel green for free community
+        } else if (isPaid) {
+          cardScheme = colorSchemes[4]; // Pastel purple for paid community
+        } else {
+          cardScheme = scheme;
+        }
         
         return (
-          <Card key={community.name} className={`${cardScheme.cardBg} border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-xl overflow-hidden cursor-pointer`}>
-            <CardContent className="p-4">
-              {/* Icon, Title and Arrow Row */}
-              <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 ${cardScheme.iconBg} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                  <IconComponent className={`h-5 w-5 ${cardScheme.iconColor}`} />
+          <a 
+            key={community.name} 
+            href={community.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <Card className={`${cardScheme.cardBg} border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-xl overflow-hidden cursor-pointer`}>
+              <CardContent className="p-4">
+                {/* Icon, Title and Arrow Row */}
+                <div className="flex items-center gap-3">
+                  <div className={`w-10 h-10 ${cardScheme.iconBg} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                    <IconComponent className={`h-5 w-5 ${cardScheme.iconColor}`} />
+                  </div>
+                  
+                  <div className="flex-1 min-w-0">
+                    <h3 className={`text-base font-semibold ${cardScheme.textColor} mb-1 leading-tight`}>
+                      {community.name}
+                    </h3>
+                    <p className={`${cardScheme.descColor} text-sm leading-relaxed`}>
+                      {community.description}
+                    </p>
+                  </div>
+
+                  <ArrowRight className="h-5 w-5 text-gray-400 flex-shrink-0" />
                 </div>
-                
-                <div className="flex-1 min-w-0">
-                  <h3 className={`text-base font-semibold ${cardScheme.textColor} mb-1 leading-tight`}>
-                    {community.name}
-                  </h3>
-                  <p className={`${cardScheme.descColor} text-sm leading-relaxed`}>
-                    {community.description}
-                  </p>
-                </div>
-
-                <ArrowRight className="h-5 w-5 text-gray-400 flex-shrink-0" />
-              </div>
-
-              {/* CTA Button - only show for paid communities */}
-              {!isFree && (
-                <>
-                  <Button 
-                    asChild
-                    className={`w-full ${cardScheme.buttonBg} text-white font-medium py-2 h-10 rounded-lg ${cardScheme.buttonHover} transform active:scale-95 transition-all duration-200 mt-4`}
-                  >
-                    <a href={community.url} target="_blank" rel="noopener noreferrer">
-                      Start Free Trial
-                    </a>
-                  </Button>
-
-                  {/* Fine print - only for paid communities */}
-                  <p className="text-center text-xs text-gray-500 mt-2">
-                    Cancel anytime
-                  </p>
-                </>
-              )}
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </a>
         );
       })}
     </div>
