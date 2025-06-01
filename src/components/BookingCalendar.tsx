@@ -18,9 +18,9 @@ const BookingCalendar = () => {
     <section className="px-4 py-12 bg-gray-50">
       <div className="max-w-md mx-auto">
         <Card className="bg-white border-0 shadow-lg rounded-2xl overflow-hidden">
-          <CardContent className="p-6">
+          <CardContent className="p-6 text-center">
             {/* Header */}
-            <div className="text-center mb-6">
+            <div className="mb-6">
               <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <CalendarIcon className="h-8 w-8 text-blue-600" />
               </div>
@@ -35,13 +35,13 @@ const BookingCalendar = () => {
               </div>
             </div>
 
-            {/* Calendar */}
-            <div className="mb-6">
+            {/* Calendar - Centered */}
+            <div className="mb-6 flex justify-center">
               <Calendar
                 mode="single"
                 selected={date}
                 onSelect={setDate}
-                className="rounded-lg border-0 p-0"
+                className="rounded-lg border-0 p-0 mx-auto"
                 classNames={{
                   months: "flex flex-col space-y-4",
                   month: "space-y-4",
@@ -72,7 +72,7 @@ const BookingCalendar = () => {
             {/* Time Slots */}
             {date && (
               <div className="mb-6">
-                <h3 className="font-semibold text-gray-900 mb-3 flex items-center">
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center justify-center">
                   <Clock className="h-4 w-4 mr-2" />
                   Available Times for {format(date, "MMM d")}
                 </h3>
@@ -96,7 +96,7 @@ const BookingCalendar = () => {
                 asChild
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 h-12 rounded-lg"
               >
-                <a href="https://stan.store/engineeredfocus/p/book-a-11-consulting-session-s1kowruq" target="_blank" rel="noopener noreferrer">
+                <a href="/booking" rel="noopener noreferrer">
                   Book a 1:1 Call with Me
                 </a>
               </Button>
@@ -106,7 +106,7 @@ const BookingCalendar = () => {
                 variant="ghost"
                 className="w-full text-blue-600 hover:text-blue-700 font-medium"
               >
-                <a href="https://stan.store/engineeredfocus/p/book-a-11-consulting-session-s1kowruq" target="_blank" rel="noopener noreferrer">
+                <a href="/booking" rel="noopener noreferrer">
                   Learn More
                 </a>
               </Button>
