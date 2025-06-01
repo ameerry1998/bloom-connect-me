@@ -57,109 +57,104 @@ const LeadMagnet = () => {
   ];
 
   return (
-    <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 shadow-2xl">
-      <CardContent className="p-8 lg:p-12">
-        <div className="text-center mb-8">
-          <Badge className="mb-4 bg-gradient-to-r from-orange-500 to-red-500 text-white hover:from-orange-600 hover:to-red-600 border-0 px-4 py-2">
-            <Gift className="h-4 w-4 mr-2" />
-            Limited Time Free Download
+    <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 shadow-lg">
+      <CardContent className="p-6">
+        <div className="text-center mb-6">
+          <Badge className="mb-3 bg-gradient-to-r from-orange-500 to-red-500 text-white hover:from-orange-600 hover:to-red-600 border-0 px-3 py-1 text-xs">
+            <Gift className="h-3 w-3 mr-1" />
+            Free Download
           </Badge>
           
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3 leading-tight">
             The Complete Focus & AI Toolkit
           </h2>
           
-          <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto leading-relaxed">
-            Get the exact templates and systems used by our community members to 10x their focus 
-            and implement AI tools that actually save time.
+          <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+            Get the exact templates used by our community to 10x their focus and implement AI tools that save time.
           </p>
 
-          <div className="flex items-center justify-center gap-2 text-sm text-gray-500 mb-8">
-            <div className="flex -space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full border-2 border-white"></div>
-              <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-teal-500 rounded-full border-2 border-white"></div>
-              <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-2 border-white"></div>
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full border-2 border-white"></div>
+          <div className="flex items-center justify-center gap-2 text-xs text-gray-500 mb-6">
+            <div className="flex -space-x-1">
+              <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full border-2 border-white"></div>
+              <div className="w-6 h-6 bg-gradient-to-r from-green-500 to-teal-500 rounded-full border-2 border-white"></div>
+              <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-2 border-white"></div>
             </div>
-            <span>Downloaded by 5,000+ people</span>
-            <div className="flex items-center gap-1 ml-2">
-              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-              <span>4.8/5 rating</span>
+            <span>5,000+ downloads</span>
+            <div className="flex items-center gap-1">
+              <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+              <span>4.8/5</span>
             </div>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          {/* Benefits */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">What's included:</h3>
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center gap-3">
-                <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                <span className="text-gray-700">{benefit}</span>
-              </div>
-            ))}
-            
-            <div className="mt-6 p-4 bg-white/60 rounded-lg border border-orange-200">
-              <p className="text-sm text-gray-600">
-                <strong className="text-orange-600">Bonus:</strong> Get exclusive access to our private 
-                resource library and monthly community challenges.
-              </p>
+        {/* Benefits */}
+        <div className="space-y-3 mb-6">
+          <h3 className="text-sm font-bold text-gray-900">What's included:</h3>
+          {benefits.map((benefit, index) => (
+            <div key={index} className="flex items-center gap-2">
+              <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+              <span className="text-sm text-gray-700">{benefit}</span>
             </div>
+          ))}
+          
+          <div className="mt-4 p-3 bg-white/80 rounded-lg border border-orange-200">
+            <p className="text-xs text-gray-600">
+              <strong className="text-orange-600">Bonus:</strong> Exclusive access to our private resource library and monthly challenges.
+            </p>
           </div>
+        </div>
 
-          {/* Form */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/50">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="relative">
-                <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
-                <Input
-                  type="email"
-                  placeholder="Enter your email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 h-12 border-gray-200"
-                  required
-                />
-              </div>
-              
-              <div className="relative">
-                <Phone className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
-                <Input
-                  type="tel"
-                  placeholder="Phone number (optional)"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="pl-10 h-12 border-gray-200"
-                />
-              </div>
-              
-              <Button 
-                type="submit" 
-                disabled={isLoading}
-                className="w-full h-12 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold"
-              >
-                {isLoading ? (
-                  "Sending toolkit..."
-                ) : (
-                  <>
-                    <Download className="mr-2 h-4 w-4" />
-                    Get Free Toolkit Now
-                  </>
-                )}
-              </Button>
-              
-              <p className="text-xs text-gray-500 text-center">
-                We respect your privacy. Unsubscribe at any time.
-              </p>
-            </form>
-          </div>
+        {/* Form */}
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/50">
+          <form onSubmit={handleSubmit} className="space-y-3">
+            <div className="relative">
+              <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="pl-9 h-10 border-gray-200 text-sm"
+                required
+              />
+            </div>
+            
+            <div className="relative">
+              <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
+              <Input
+                type="tel"
+                placeholder="Phone (optional)"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="pl-9 h-10 border-gray-200 text-sm"
+              />
+            </div>
+            
+            <Button 
+              type="submit" 
+              disabled={isLoading}
+              className="w-full h-11 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold text-sm active:scale-95 transition-transform"
+            >
+              {isLoading ? (
+                "Sending..."
+              ) : (
+                <>
+                  <Download className="mr-2 h-4 w-4" />
+                  Get Free Toolkit
+                </>
+              )}
+            </Button>
+            
+            <p className="text-xs text-gray-500 text-center">
+              We respect your privacy. Unsubscribe anytime.
+            </p>
+          </form>
         </div>
       </CardContent>
 
       {/* Decorative elements */}
-      <div className="absolute -top-10 -right-10 w-20 h-20 bg-gradient-to-r from-orange-400 to-red-400 rounded-full opacity-20"></div>
-      <div className="absolute -bottom-10 -left-10 w-16 h-16 bg-gradient-to-r from-pink-400 to-red-400 rounded-full opacity-20"></div>
+      <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-orange-400 to-red-400 rounded-full opacity-20"></div>
+      <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-gradient-to-r from-pink-400 to-red-400 rounded-full opacity-20"></div>
     </Card>
   );
 };
